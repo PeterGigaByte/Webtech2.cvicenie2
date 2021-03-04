@@ -1,0 +1,19 @@
+<?php
+echo '<table class="container" id="table" style="overflow: scroll">
+        <tr>
+            <th>Meno</th>
+            <th>Priezvisko</th>
+            <th>Rok</th>
+            <th>Miesto</th>
+            <th>Typ</th>
+            <th>Disciplína</th>
+        </tr>
+        <tr>
+            <td>...</td>
+            <td>...</td>
+            <td>...</td>
+            <td>...</td>
+            <td>...</td>
+            <td>...</td>
+        </tr>
+</table>';
