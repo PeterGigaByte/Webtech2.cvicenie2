@@ -18,8 +18,14 @@
     <div class="container border">
         <main>
             <div class="row">
+                <div class="input-button top">
+                    <button onclick="top10()" type="button" id="top10" class="btn btn-primary">Top 10</button>
+                    <button onclick="slovaks()" type="button" id="slovaks" class="btn btn-success">Slovenskí olympijskí víťazi</button>
+                </div>
+
                 <div id="table-div" class="col table" >
-                    <?php include 'table.php';
+                    <?php
+                        include "table_default.php";
                     ?>
                 </div>
             </div>
@@ -31,6 +37,5 @@
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/javascript.js"></script>
-    <script src="js/sortTable.js"></script>
 </body>
 </html>

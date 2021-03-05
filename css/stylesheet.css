@@ -165,3 +165,12 @@ footer{
 .pointer-directory:hover{
     color: black;
 }
+.top{
+    width: 100% !important;
+    float: left !important;
+    text-align: left !important;
+    padding-bottom: 30px;
+}
+.short{
+    width: 10% !important;
+}
