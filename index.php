@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/table.css">
     <link rel="icon" href="icons/upload-icon.png">
 </head>
-<body>
+<body class="container">
     <header>
         <span class="welcome-header">Štatistické centrum pre šport</span>
     </header>
