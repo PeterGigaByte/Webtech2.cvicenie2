@@ -174,7 +174,7 @@ footer{
     width: 10% !important;
 }
 .name-Heading{
-
+    display: inline-block;
     font-size: 50px;
     font-weight: bold;
     text-decoration: underline;
@@ -209,4 +209,45 @@ footer{
     height: 10px;
     width: 100%;
     background: #0d6efd;
+}
+.bottom{
+    float: right;
+    padding-bottom: 50px;
+}
+.add-placing{
+    color: black;
+    font-size: 30px;
+    font-weight: inherit;
+    padding-top: 50px;
+    width: 100%;
+    float: left;
+}
+#placing-form{
+    color: black;
+    font-size: 30px;
+    font-weight: inherit;
+    padding-top: 10px;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+.placing-button{
+    margin-left: 35%;
+    width: 30%;
+}
+#deathForm{
+    color: black;
+    font-size: 30px;
+    font-weight: inherit;
+    padding-top: 50px;
+}
+.medals-Heading{
+
+    font-size: 30px;
+    font-weight: bold;
+}
+.float-right{
+    margin-right: 30px;
+    display: inline-block;
+    float: right;
 }

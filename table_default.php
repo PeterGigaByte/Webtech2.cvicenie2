@@ -3,7 +3,7 @@ include_once 'config/config.php';
 include_once "query/default_table.php";
 echo '
 <div class="legend-line-green"></div>
-<table class="container" id="table" style="overflow: scroll">
+<table class="container sortable" id="table" style="overflow: scroll">
         <tr>
             <th>Meno</th>
             <th>Priezvisko</th>
@@ -27,7 +27,9 @@ foreach($default_table as $table_object) {
             <td>'.$table_object['discipline'].'</td>
             <td class="noHover"> <button type="button" onclick="details('.$table_object['id'].')"  class="btn btn-info">Detaily</button></td>
             <td class="noHover"> <button type="button" onclick="editPerson('.$table_object['id'].')" class="btn btn-warning">Editovať</button></td>
-            <td class="noHover"> <button type="button"  class="btn btn-danger">Zmazať</button></td>
+            <td class="noHover"> <button type="button" onclick="deletePerson_default('.$table_object['id'].')"  class="btn btn-danger">Zmazať</button></td>
         </tr >';
 }
-echo  '</table>';
+echo  '</table>
+<script src="js/sortable.js"></script>';
+

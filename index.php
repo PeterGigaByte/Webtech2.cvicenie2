@@ -29,6 +29,9 @@
                     ?>
                 </div>
             </div>
+            <div class="input-button bottom">
+                <button id="submit" onclick="addPerson()" type="button"  class="btn btn-info">Pridať olympionika</button>
+            </div>
         </main>
     </div>
 
@@ -37,5 +40,6 @@
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/javascript.js"></script>
+
 </body>
 </html>

@@ -8,6 +8,7 @@ foreach ($details as $person) {
 echo "
     <div>
         <div class='name-Heading'>".$person["name"]."  ".$person["surname"]."</div>
+        <button type='button' onclick='editPerson(".$person['id'].")' class='btn btn-warning float-right'>Editovať</button>
         <div class='container details-person'>
              <div class='row'>
                  <div class='col'>
@@ -35,7 +36,9 @@ echo "
         </div>
          
          <hr>";
-                    echo '<table class="container" id="table" style="overflow: scroll">
+                    echo '
+        <div class="medals-Heading">Medailové umiestnenia : </div>
+        <table class="container sortable" id="table" style="overflow: scroll">
         <tr>
             <th>Umiestnenie</th>
             <th>Rok</th>
@@ -57,7 +60,8 @@ echo "
             }
         }
         echo  '</table>              
-    </div>';
+    </div>
+    <script src="js/sortable.js"></script>';
 break;
     }
 }
