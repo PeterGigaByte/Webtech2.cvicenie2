@@ -14,3 +14,6 @@ $addPerson = "INSERT INTO person (name,surname,birth_day,birth_place,birth_count
 $stmt= $dbh->prepare($addPerson);
 
 $stmt->execute([$name,$surname,$birth_day,$birth_place,$birth_country,$death_day,$death_place,$death_country]);
+
+$last_id = $dbh->lastInsertId();
+echo $last_id;

@@ -1,6 +1,6 @@
 <?php
-include_once 'config/config.php';
-include_once "query/oh_query.php";
+include 'config/config.php';
+include "query/oh_query.php";
 echo "
 <div class='add-placing'>
 Pridať umiestnie :       <input class='form-check-input' onchange='showAddPlacing()' type='checkbox' value='' id='placing-checkbox' required>
@@ -17,5 +17,5 @@ foreach ($oh as $table_object){
     echo"                 </select>
          Disciplína :   <input id='disciplineInput' name='disciplineInput' type='text' class='form-control '  placeholder='Disciplína' value='' required>
      </div>
-     <button id='save-placing' onclick='addPlacing(".$person['id'].")' type='button' class='btn btn-success edit-button placing-button hidden'>Uložiť umiestnenie</button>
+     <button id='save-placing' onclick='addPlacing(".$person['id'].")' type='button' class='btn btn-success placing-button hidden'>Uložiť umiestnenie</button>
 </div>";

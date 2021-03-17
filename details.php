@@ -2,8 +2,7 @@
 include_once 'config/config.php';
 include_once "query/details_table.php";
 $id = $_POST['id'];
-
-foreach ($details as $person) {
+foreach ($persons as $person) {
     if ($person["id"] == $id) {
 echo "
     <div>
@@ -38,7 +37,9 @@ echo "
          <hr>";
                     echo '
         <div class="medals-Heading">Medailové umiestnenia : </div>
+        <div class="tooltip2">Pre editáciu medailových umiestnení, musíte byť v móde editácia.</div>
         <table class="container sortable" id="table" style="overflow: scroll">
+        <thead>
         <tr>
             <th>Umiestnenie</th>
             <th>Rok</th>
@@ -46,7 +47,9 @@ echo "
             <th>Mesto</th>
             <th>Disciplína</th>
             <th>Typ</th>
-        </tr>';
+        </tr>
+        </thead>
+        <tbody>';
         foreach($details as $achievement) {
             if ($achievement["id"] == $id) {
             echo' <tr>
@@ -56,12 +59,12 @@ echo "
             <td>'.$achievement['city'].'</td>
             <td>'.$achievement['discipline'].'</td>
             <td>'.$achievement['type'].'</td>
-        </tr >';
+        </tr>';
             }
         }
-        echo  '</table>              
+        echo  '</tbody></table>              
     </div>
-    <script src="js/sortable.js"></script>';
+    <script src="js/sortable_personal_results_page.js"></script>';
 break;
     }
 }

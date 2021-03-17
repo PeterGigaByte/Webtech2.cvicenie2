@@ -7,12 +7,14 @@ function top10(){
 function slovaks(){
     $.post('table_default.php', function (response) {
         $("#table-div").html(response);
+
     });
 }
 function details(id){
     $.post('details.php','id=' + id ,function (response){
         $("#table-div").html(response);
     });
+
 }
 function editPerson(id){
     $.post('editPerson.php','id=' + id ,function (response){
@@ -86,19 +88,39 @@ function updateData(){
 }
 function editPersonPost(id){
     updateData();
-   $.post('databaseControllers/editPerson.php',{
-       idInput:id,firstNameInput: firstNameInput,surNameInput: surNameInput,birthDayInput: birthDayInput
-       ,birthPlaceInput: birthPlaceInput, birthCountryInput: birthCountryInput,deathDayInput: deathDayInput,
-       deathPlaceInput: deathPlaceInput,deathCountryInput: deathCountryInput});
-    details(id);
+    $.post('validation/sameName.php',{name:firstNameInput+surNameInput,id:id},function (response){
+       if(response==="true"){
+           $.post('databaseControllers/editPerson.php',{
+               idInput:id,firstNameInput: firstNameInput,surNameInput: surNameInput,birthDayInput: birthDayInput
+               ,birthPlaceInput: birthPlaceInput, birthCountryInput: birthCountryInput,deathDayInput: deathDayInput,
+               deathPlaceInput: deathPlaceInput,deathCountryInput: deathCountryInput});
+           details(id);
+       }
+       else if(response === "false"){
+           $('#response').html("Tento olympionik už je zaregistrovaný.");
+           $('#response2').html("Tento olympionik už je zaregistrovaný.");
+       }
+    });
+
 }
 function addPersonPost(){
     updateData();
-    $.post('databaseControllers/addPerson.php',{
-        firstNameInput: firstNameInput,surNameInput: surNameInput,birthDayInput: birthDayInput
-        ,birthPlaceInput: birthPlaceInput, birthCountryInput: birthCountryInput,deathDayInput: deathDayInput,
-        deathPlaceInput: deathPlaceInput,deathCountryInput: deathCountryInput});
-    slovaks();
+    $.post('validation/sameName.php',{name:firstNameInput+surNameInput,id:"-1"},function (response) {
+        if (response === "true") {
+            $.post('databaseControllers/addPerson.php', {
+                firstNameInput: firstNameInput, surNameInput: surNameInput, birthDayInput: birthDayInput
+                , birthPlaceInput: birthPlaceInput, birthCountryInput: birthCountryInput, deathDayInput: deathDayInput,
+                deathPlaceInput: deathPlaceInput, deathCountryInput: deathCountryInput
+            },function (response){
+                details(response)
+            });
+
+        }
+        else if(response === "false"){
+            $('#response').html("Tento olympionik už je zaregistrovaný.");
+            $('#response2').html("Tento olympionik už je zaregistrovaný.");
+        }
+    });
 }
 
 let placing;

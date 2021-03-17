@@ -7,4 +7,7 @@ oh.year,oh.city,oh.country,oh.type, placing.discipline, placing.placing
 from person,oh,placing 
 where person.id = placing.person_id
 and placing.oh_id = oh.id");
+$persons = $dbh->query("
+select * from person");
+$persons = $persons->fetchAll(PDO::FETCH_ASSOC);
 $details = $details->fetchAll(PDO::FETCH_ASSOC);

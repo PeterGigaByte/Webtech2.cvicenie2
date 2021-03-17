@@ -3,6 +3,7 @@ include_once 'config/config.php';
 include_once "query/top10_table.php";
 echo '<div class="legend-line-blue"></div>
 <table class="container sortable" id="table" style="overflow: scroll">
+<thead>
         <tr>
             <th>Prvé miesta</th>
             <th>Meno</th>
@@ -10,7 +11,10 @@ echo '<div class="legend-line-blue"></div>
             <th></th>
             <th></th>
             <th></th>
-        </tr>';
+        </tr>
+        </thead>
+        <tbody>';
+
 foreach($top10_table as $table_object) {
     echo' <tr>
             <td>'.$table_object['pocet'].'</td>
@@ -21,5 +25,5 @@ foreach($top10_table as $table_object) {
             <td class="noHover short"> <button type="button" onclick="deletePerson_top10('.$table_object['id'].')"  class="btn btn-danger">Zmazať</button></td>
         </tr >';
 }
-echo  '</table>
+echo  '</tbody></table>
 <script src="js/sortable.js"></script>';

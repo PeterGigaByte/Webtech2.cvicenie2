@@ -1,5 +1,5 @@
 <?php
-include_once("DbsLogin.php");
+include("DbsLogin.php");
 
 try {
     $dbh = new PDO($dsn, $user, $password);

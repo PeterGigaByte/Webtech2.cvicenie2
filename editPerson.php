@@ -3,20 +3,21 @@ include_once 'config/config.php';
 include_once "query/details_table.php";
 $id = $_POST['id'];
 
-foreach ($details as $person) {
+foreach ($persons as $person) {
     if ($person["id"] == $id) {
         echo "
     <div>
         <div class='name-Heading'>".$person["name"]."  ".$person["surname"]." </div>
+        <div id='response' class='float-right response hidden red'></div>
         <button type='button' onclick='details(".$person['id'].")' class='btn btn-warning float-right'>Detaily</button>
         <div class='container details-person'>
              <div class='row'>
                  <div class='col'>
                    <img class='profile-picture' src='images/profile.png' alt='profile'>";
                     if($person["death_day"]!=""){
-                        include 'death/dead.php';
+                        include_once 'death/dead.php';
                     }else{
-                        include 'death/notDead.php';
+                        include_once 'death/notDead.php';
                     }
 
                    echo"
@@ -35,6 +36,7 @@ foreach ($details as $person) {
 
         echo "
                  </div>
+                 <div id='response2' class='float-right response hidden red'></div>
                  <button type='button' onclick='editPersonPost(".$person["id"].")' class='btn btn-success edit-button'>Uložiť olympionika</button>
             </div>
              </div>
@@ -44,6 +46,7 @@ foreach ($details as $person) {
         echo '
         <div class="medals-Heading">Medailové umiestnenia : </div>
         <table class="container sortable" id="table" style="overflow: scroll">
+        <thead>
         <tr>
             <th>Umiestnenie</th>
             <th>Rok</th>
@@ -51,7 +54,9 @@ foreach ($details as $person) {
             <th>Mesto</th>
             <th>Disciplína</th>
             <th>Typ</th>
-        </tr>';
+        </tr>
+        </thead>
+        <tbody';
         foreach($details as $achievement) {
             if ($achievement["id"] == $id) {
                 echo' <tr>
@@ -64,13 +69,13 @@ foreach ($details as $person) {
         </tr >';
             }
         }
-        echo  '</table>      
+        echo  '</tbody></table>      
     </div>';
         echo '<div class="input-button bottom">';
 
              echo '</div>
-<script src="js/sortable.js"></script>';
-        include 'addPlacing/placing.php';
+<script src="js/sortable_personal_results_page.js"></script>';
+        include_once 'addPlacing/placing.php';
 
 
         break;

@@ -5,17 +5,19 @@ include_once "query/details_table.php";
         echo "
     <div>
         <div class='name-Heading'>Pridať olympionika</div>
+        <div id='response' class='float-right response hidden red'></div>
         <div class='container details-person'>
              <div class='row'>
                  <div class='col'>
                    <img class='profile-picture' src='images/profile.png' alt='profile'>";
-include 'death/notDead.php';
+include_once 'death/notDead.php';
    echo "
                  </div>
                  <div class='col details-personally'>
-                     Meno :   <input id='firstNameInput' name='firstNameInput' type='text' class='form-control'  placeholder='Krstné meno' value='' required>
+                 
+                     Meno :   <input required id='firstNameInput' name='firstNameInput' type='text' class='form-control'  placeholder='Krstné meno' value='' >
                     <hr>
-                    Priezvisko :   <input id='surNameInput' name='surNameInput' type='text' class='form-control'  placeholder='Priezvisko' value='' required>
+                    Priezvisko :   <input required id='surNameInput' name='surNameInput' type='text' class='form-control'  placeholder='Priezvisko' value='' >
                     <hr>
                     Dátum narodenia :   <input  id='birthDayInput' name='birthDayInput' type='text' class='form-control'  placeholder='Dátum narodenia' value='' required>
                     <hr>
@@ -25,6 +27,8 @@ include 'death/notDead.php';
 
         echo "
                  </div>
+                 <div id='response2' class='float-right response hidden red'></div>
+                 
                  <button type='button' onclick='addPersonPost()' class='btn btn-success edit-button'>Uložiť olympionika</button>
             </div>
              </div>
